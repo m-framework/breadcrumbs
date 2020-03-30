@@ -1,0 +1,30 @@
+.breadcrumbs {
+    color: #999;
+    font-size: 11px;
+    line-height: 11px;
+    padding: 15px 20px;
+}
+.breadcrumbs > a {
+    color: #999;
+    text-decoration: none;
+    padding: 5px 15px;
+    font-size: 12px;
+    display: inline-block;
+}
+.breadcrumbs > a::before {
+    content: '/';
+    margin: 0 15px 0 -15px;
+    color: #ccc;
+}
+.breadcrumbs > a.home {
+    padding: 0 0 0 0;
+}
+.breadcrumbs > a.home:before {
+    content: "\f015";
+    font-family: 'FontAwesome';
+    color: #999;
+    margin: 0 15px 0 0;
+}
+.breadcrumbs > a:hover {
+    color: #0077A7;
+}
