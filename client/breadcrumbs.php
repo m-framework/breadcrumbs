@@ -24,7 +24,7 @@ class breadcrumbs extends module {
             return false;
         }
 
-        $breadcrums_json = [];
+        $breadcrumbs_json = [];
 
         $root_path = $this->get->controller == 'admin' ? '/' . $this->config->admin_panel_alias : '/';
 
@@ -32,7 +32,7 @@ class breadcrumbs extends module {
 
         $n = 1;
 
-        $breadcrums_json[] = (object)[
+        $breadcrumbs_json[] = (object)[
             '@type' => 'ListItem',
             'position' => $n,
             'item' => (object)[
@@ -46,7 +46,7 @@ class breadcrumbs extends module {
 
             $n++;
 
-            $breadcrums_json[] = (object)[
+            $breadcrumbs_json[] = (object)[
                 '@type' => 'ListItem',
                 'position' => $n,
                 'item' => (object)[
@@ -70,13 +70,13 @@ class breadcrumbs extends module {
             $title = registry::get('title');
         }
 
-        $breadcrums_json = (object)[
+        $breadcrumbs_json = (object)[
             '@context' => 'http://schema.org',
             '@type' => 'BreadcrumbList',
-            'itemListElement' => $breadcrums_json,
+            'itemListElement' => $breadcrumbs_json,
         ];
 
-        $application_ld_json = '<script type="application/ld+json">' . json_encode($breadcrums_json, JSON_UNESCAPED_UNICODE) . '</script>';
+        $application_ld_json = '<script type="application/ld+json">' . json_encode($breadcrumbs_json, JSON_UNESCAPED_UNICODE) . '</script>';
 
         return view::set($this->module_name, $this->view->{$this->module_name}->prepare([
             'links' => implode('', $arr),
